@@ -11,14 +11,41 @@ const getClients = async (req, res) => {
 
 const getClientById = async (req, res) => {
   try {
-    return await Client.find(req.params);
+    return await Client.findById(req);
   } catch (error) {
     console.error(`getClientById error: ${error}`.red);
     res.stats(500).json({ message: "Server Error" });
   }
 };
 
+const addClient = async (req, res) => {
+  try {
+    const { name, email, phone } = req;
+    const client = new Client({
+      name,
+      email,
+      phone,
+    });
+
+    return await client.save();
+  } catch (error) {
+    console.error(`addClient error: ${error}`.red);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+const deleteClient = async (req, res) => {
+  try {
+    return await Client.findByIdAndDelete(req);
+  } catch (error) {
+    console.error(`addClient error: ${error}`.red);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
 module.exports = {
   getClients,
   getClientById,
+  addClient,
+  deleteClient,
 };
