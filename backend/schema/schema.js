@@ -8,8 +8,6 @@ const {
   GraphQLEnumType,
 } = require("graphql");
 
-const Project = require("../models/Project");
-
 const {
   getProjects,
   getProjectById,
@@ -60,7 +58,7 @@ const RooteQuery = new GraphQLObjectType({
     client: {
       type: ClientType,
       args: { id: { type: GraphQLID } },
-      resolve: (parent, args) => getClientById(parent.clientId),
+      resolve: (parent, args) => getClientById(args.id),
     },
     projects: {
       type: new GraphQLList(ProjectType),
