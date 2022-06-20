@@ -148,7 +148,7 @@ const ClientsScreen = () => {
       ) : error ? (
         <h2>{`Error Clients Screen: ${error.message}`}</h2>
       ) : (
-        <div className="d-grid gap-2">
+        <div className="d-grid gap-2 mb-5">
           <div className="row">
             <div className="col">
               <AddClientModal handleSubmit={addClientHandler} />

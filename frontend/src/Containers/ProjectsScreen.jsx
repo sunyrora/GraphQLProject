@@ -22,7 +22,7 @@ const ProjectsScreen = () => {
       ) : error ? (
         <h2>{`Error Projects Screen: ${error.message}`}</h2>
       ) : (
-        <div className="card-group mb-3">
+        <div className="row mb-3">
           {projectsDdata.projects.map((project) => (
             <Project key={project.id} project={project} />
           ))}

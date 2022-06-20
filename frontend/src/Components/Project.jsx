@@ -1,18 +1,22 @@
 const Project = ({ project }) => {
   return (
-    <div className="col-md-6">
-      <div className="card m-1">
-        <div className="card-header">{project.name}</div>
-        <div className="card-body">
-          <a href={`/project/${project.id}`} className="btn">
-            <div className="card-text mb-1">{project.description}</div>
+    <div className="col mb-3 col-sm-3">
+      <div className="card m-1 h-100">
+        <div className="card-header text-truncate">{project.name}</div>
+        <div className="card-body d-flex d-flex flex-column justify-content-start align-items-center p-1">
+          <a
+            href={`/project/${project.id}`}
+            className="btn project-description w-100 d-flex flex-column justify-content-center"
+          >
+            <div className="card-text mb-1 text-truncate">
+              {project.description}
+            </div>
+          </a>
+          <div>
             <span className="badge bg-info text-wrap small">
               {project.status}
             </span>
-          </a>
-          {/* <div className="d-flex justify-content-between align-items-center">
-            <h5 className="card-title">{project.name}</h5>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
