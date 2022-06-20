@@ -2,10 +2,11 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 import { ADD_CLIENT, DELETE_CLIENT } from "../mutations/clientMutations";
 import { GET_CLIENTS } from "../queries/clientQueries";
-import Client from "./Client";
-import Spinner from "./Spinner";
+import Client from "../Components/Client";
+import Spinner from "../Components/Spinner";
+import AddClientModal from "../Components/AddClientModal";
 
-const Clients = () => {
+const ClientsScreen = () => {
   const [err, setError] = useState("");
   const [addCount, setAddCount] = useState(0);
   /*
@@ -147,10 +148,11 @@ const Clients = () => {
       ) : error ? (
         <h2>{`Error Clients Screen: ${error.message}`}</h2>
       ) : (
-        <div className="container">
+        <div className="d-grid gap-2">
           <div className="row">
             <div className="col">
-              <button
+              <AddClientModal handleSubmit={addClientHandler} />
+              {/* <button
                 type="button"
                 className="btn btn-primary"
                 onClick={(e) =>
@@ -162,14 +164,14 @@ const Clients = () => {
                 }
               >
                 Add Client
-              </button>
+              </button> */}
             </div>
           </div>
-          <div className="row">
-            <div className="col-sm">Name</div>
-            <div className="col-sm">Email</div>
-            <div className="col-sm">Phone</div>
-            <div className="col-sm"></div>
+          <div className="row pb-1 border-bottom fw-bold text-center">
+            <div className="col">Name</div>
+            <div className="col">Email</div>
+            <div className="col">Phone</div>
+            <div className="col-1"></div>
           </div>
           {clientsData.clients.map((client) => (
             <Client
@@ -184,4 +186,4 @@ const Clients = () => {
   );
 };
 
-export default Clients;
+export default ClientsScreen;

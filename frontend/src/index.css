@@ -22,7 +22,7 @@ code {
 }
 
 .btn {
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .btn-primary,
@@ -47,4 +47,18 @@ code {
 
 .icon {
   margin-right: 5px;
+}
+
+.project-description,
+.project-description:hover {
+  border-width: 0;
+}
+
+.project-description:hover {
+  color: #df3ca6;
+  /* font-size: large; */
+}
+
+.small {
+  font-size: 10px;
 }

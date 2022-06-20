@@ -1,26 +1,11 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import Clients from "./Components/Clients";
-import Header from "./Components/Header";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Project from "./Components/Project";
+import HomeScreen from "./Containers/HomeScreen";
+import NotFoundScreen from "./Containers/NotFoundScreen";
+import ProjectScreen from "./Containers/ProjectScreen";
 
 const cache = new InMemoryCache();
-// {
-// typePolicies: {
-//   Query: {
-//     fields: {
-//       clients: {
-//         merge(existing, incoming) {
-//           return incoming;
-//         },
-//       },
-//       projects: {
-//         merge(existing, incoming) {
-//           return incoming;
-//         },
-//       },
-//     },
-//   },
-// },
-// }
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_GRAPH_HOST,
@@ -31,10 +16,14 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <Header />
-        <div className="container">
-          <Clients />
-        </div>
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/project/:id" element={<ProjectScreen />} />
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="*" element={<NotFoundScreen />} />
+          </Routes>
+        </Router>
       </ApolloProvider>
     </>
   );

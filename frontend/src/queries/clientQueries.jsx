@@ -12,7 +12,7 @@ const GET_CLIENTS = gql`
 `;
 
 const GET_CLIENT = gql`
-  query getClient($id: String!) {
+  query getClient($id: ID!) {
     client(id: $id) {
       id
       name
