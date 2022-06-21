@@ -6,7 +6,7 @@ import ProjectScreen from "./Containers/ProjectScreen";
 
 const cache = new InMemoryCache();
 
-const client = new ApolloClient({
+export const apolloClient = new ApolloClient({
   uri: process.env.REACT_APP_GRAPH_HOST,
   cache: cache,
 });
@@ -14,7 +14,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <>
-      <ApolloProvider client={client}>
+      <ApolloProvider client={apolloClient}>
         <Router>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
