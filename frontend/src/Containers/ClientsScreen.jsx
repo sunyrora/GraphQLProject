@@ -8,7 +8,6 @@ import AddClientModal from "../Components/AddClientModal";
 
 const ClientsScreen = () => {
   const [err, setError] = useState("");
-  const [addCount, setAddCount] = useState(0);
   /*
     apollo updateCache arguments example
      @updateTo: String
@@ -68,16 +67,6 @@ const ClientsScreen = () => {
   const [addClient, { loading: addEnCours, error: addError }] = useMutation(
     ADD_CLIENT,
     {
-      //   update: (cache, { data: { addClient } }) => {
-      //     const updateTo = `Client {
-      //                 id
-      //                 name
-      //                 email
-      //                 phone
-      //               }`;
-      //     updateCache(cache, addClient, updateTo);
-      //   },
-
       update(cache, { data: { addClient } }) {
         cache.modify({
           fields: {
@@ -123,8 +112,6 @@ const ClientsScreen = () => {
         setError("");
       }, 5000);
     }
-
-    if (!addEnCours && !addError) setAddCount(addCount + 1);
   };
 
   const deletClientHandler = async (e, id) => {
@@ -152,19 +139,6 @@ const ClientsScreen = () => {
           <div className="row">
             <div className="col">
               <AddClientModal handleSubmit={addClientHandler} />
-              {/* <button
-                type="button"
-                className="btn btn-primary"
-                onClick={(e) =>
-                  addClientHandler(e, {
-                    name: `Add test ${addCount}`,
-                    email: "algkjdflj@alfdjk.com",
-                    phone: "143543646",
-                  })
-                }
-              >
-                Add Client
-              </button> */}
             </div>
           </div>
           <div className="row pb-1 border-bottom fw-bold text-center">
