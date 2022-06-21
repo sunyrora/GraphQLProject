@@ -24,6 +24,8 @@ code {
 
 .btn {
   font-size: 13px;
+  margin: 3px;
+  padding: 3px, 4px;
 }
 
 .btn-primary,
@@ -80,7 +82,8 @@ code {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.project-name a:link {
+.project-name a:link,
+.project-name a:visited {
   text-decoration: none;
   color: black;
 }
@@ -89,33 +92,30 @@ code {
   color: #df3ca6;
 }
 
-.project-status {
-  max-width: 40%;
-}
-
 .small {
   font-size: 10px;
+}
+
+.mdium {
+  font-size: 12px;
 }
 
 textarea {
   resize: none;
 }
 
-[class*="btn-outline-"] {
+/* [class*="btn-outline-"] {
   margin: 3px;
   padding: 3px;
-}
-
-.card-header {
-}
-.card-body {
+} */
+.card-body.projects-screen {
   display: flex;
   flex-direction: colum;
   justify-content: start;
   align-items: center;
   padding: 1px;
 }
-.card-footer {
+.card-footer.projects-screen {
   display: flex;
   justify-content: center;
   padding: 3px;
