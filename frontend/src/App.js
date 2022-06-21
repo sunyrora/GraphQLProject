@@ -1,6 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Project from "./Components/Project";
 import HomeScreen from "./Containers/HomeScreen";
 import NotFoundScreen from "./Containers/NotFoundScreen";
 import ProjectScreen from "./Containers/ProjectScreen";
