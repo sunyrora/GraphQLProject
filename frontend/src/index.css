@@ -59,6 +59,28 @@ code {
   /* font-size: large; */
 }
 
+.project-name:link {
+  text-decoration: none;
+  color: black;
+}
+
+.project-name:hover {
+  color: #df3ca6;
+}
+
 .small {
   font-size: 10px;
+}
+
+textarea {
+  resize: none;
+}
+
+[class*="btn-outline-"] {
+  margin: 3px;
+  padding: 3px;
+}
+
+.card-footer {
+  padding: 3px;
 }
