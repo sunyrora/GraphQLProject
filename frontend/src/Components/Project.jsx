@@ -1,10 +1,19 @@
+import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ConfirmModal from "./ConfirmModal";
 
 const Project = ({ project, deleteHandler }) => {
   const linkProps = {
     to: `/project/${project.id}`,
     id: project.id,
     state: { testState: "testState" },
+  };
+
+  const onClickDelete = (e) => {
+    e.preventDefault();
+    if (deleteHandler) {
+      deleteHandler(e, project.id);
+    }
   };
 
   return (
@@ -19,20 +28,12 @@ const Project = ({ project, deleteHandler }) => {
             >
               {project.name}
             </Link>
-
-            {/* <a className="" href={`/project/${project.id}`}>
-              {project.name}
-            </a> */}
             <span className="badge project-status bg-info text-wrap small">
               {project.status}
             </span>
           </div>
         </div>
         <div className="card-body projects-screen">
-          {/* <a
-            href={`/project/${project.id}`}
-            className="btn project-description w-100"
-          > */}
           <Link
             to={linkProps.to}
             id={linkProps.id}
@@ -43,16 +44,16 @@ const Project = ({ project, deleteHandler }) => {
               {project.description}
             </div>
           </Link>
-          {/* </a> */}
         </div>
         <div className="card-footer projects-screen">
           <button className="btn btn-outline-success small">Edit</button>
-          <button
-            className="btn btn-outline-success small"
-            onClick={(e) => deleteHandler(e, project.id)}
-          >
-            Delete
-          </button>
+          <ConfirmModal
+            buttonText="Delete"
+            buttonStyle="btn btn-outline-success small"
+            message={`Delete Project "${project.name}" ?`}
+            icon={<FaTrash className="icon" />}
+            callBackConfirm={onClickDelete}
+          />
         </div>
       </div>
     </div>
