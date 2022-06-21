@@ -1,6 +1,6 @@
 const Project = ({ project, deletHandler }) => {
   return (
-    <div className="col mb-3 col-sm-4">
+    <div className="col mb-3 col-md-4">
       <div className="card m-1 h-100">
         <div className="card-header">
           <div className="project-name">
