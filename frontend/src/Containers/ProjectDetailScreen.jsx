@@ -8,7 +8,7 @@ import { CLIENT_TYPE_INSIDE_PROJECT } from "../constants";
 import { deletProjectRequest } from "../mutations/projectMutations";
 import { GET_PROJECT } from "../queries/projectQueries";
 
-const ProjectScreen = () => {
+const ProjectDetailScreen = () => {
   const { id } = useParams();
   const { loading, error, data } = useQuery(GET_PROJECT, { variables: { id } });
   const navigate = useNavigate();
@@ -67,4 +67,4 @@ const ProjectScreen = () => {
   );
 };
 
-export default ProjectScreen;
+export default ProjectDetailScreen;

@@ -2,7 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeScreen from "./Containers/HomeScreen";
 import NotFoundScreen from "./Containers/NotFoundScreen";
-import ProjectScreen from "./Containers/ProjectScreen";
+import ProjectDetailScreen from "./Containers/ProjectDetailScreen";
 
 const cache = new InMemoryCache();
 
@@ -18,7 +18,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
-            <Route path="/project/:id" element={<ProjectScreen />} />
+            <Route path="/project/:id" element={<ProjectDetailScreen />} />
             <Route path="/" element={<HomeScreen />} />
             <Route path="*" element={<NotFoundScreen />} />
           </Routes>
