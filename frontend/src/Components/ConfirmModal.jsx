@@ -1,9 +1,11 @@
 const ConfirmModal = ({
   buttonText = "Confirm",
+  buttonStyle = "btn btn-danger medium",
   icon,
   message = "Are you sure?",
   callBackConfirm,
 }) => {
+  // const defaultButtonStyle = "btn btn-danger medium";
   const onClickYes = (e) => {
     callBackConfirm(e);
   };
@@ -11,7 +13,7 @@ const ConfirmModal = ({
     <>
       <button
         type="button"
-        className="btn btn-danger medium"
+        className={buttonStyle}
         data-bs-toggle="modal"
         data-bs-target="#confirmModal"
       >

@@ -52,7 +52,7 @@ const ProjectScreen = () => {
               </button> */}
               <ConfirmModal
                 buttonText="Delete Project"
-                message="Delete this Project?"
+                message={`Delete Project "${data.project.name}" ?`}
                 icon={<FaTrash className="icon" />}
                 callBackConfirm={deleteProjectHandler}
               />
