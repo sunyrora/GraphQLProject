@@ -1,33 +1,55 @@
-const Project = ({ project, deletHandler }) => {
+import { Link } from "react-router-dom";
+
+const Project = ({ project, deleteHandler }) => {
+  const linkProps = {
+    to: `/project/${project.id}`,
+    id: project.id,
+    state: { testState: "testState" },
+  };
+
   return (
-    <div className="col mb-3 col-sm-4">
+    <div className="col mb-3 col-md-4">
       <div className="card m-1 h-100">
-        <a
-          href={`/project/${project.id}`}
-          className="project-name w-100 d-flex flex-column justify-content-center"
-        >
-          <div className="card-header text-truncate">{project.name}</div>
-        </a>
-        <div className="card-body d-flex d-flex flex-column justify-content-start align-items-center p-1">
-          <a
-            href={`/project/${project.id}`}
-            className="btn project-description w-100 d-flex flex-column justify-content-center"
-          >
-            <div className="card-text mb-1 text-truncate">
-              {project.description}
-            </div>
-          </a>
-          <div>
-            <span className="badge bg-info text-wrap small">
+        <div className="card-header">
+          <div className="project-name">
+            <Link
+              to={linkProps.to}
+              id={linkProps.id}
+              state={{ ...linkProps.state }}
+            >
+              {project.name}
+            </Link>
+
+            {/* <a className="" href={`/project/${project.id}`}>
+              {project.name}
+            </a> */}
+            <span className="badge project-status bg-info text-wrap small">
               {project.status}
             </span>
           </div>
         </div>
-        <div className="card-footer d-flex justify-content-center">
+        <div className="card-body projects-screen">
+          {/* <a
+            href={`/project/${project.id}`}
+            className="btn project-description w-100"
+          > */}
+          <Link
+            to={linkProps.to}
+            id={linkProps.id}
+            state={linkProps.state}
+            className="btn project-description w-100"
+          >
+            <div className="card-text mb-1 text-truncate">
+              {project.description}
+            </div>
+          </Link>
+          {/* </a> */}
+        </div>
+        <div className="card-footer projects-screen">
           <button className="btn btn-outline-success small">Edit</button>
           <button
             className="btn btn-outline-success small"
-            onClick={(e) => deletHandler(e, project.id)}
+            onClick={(e) => deleteHandler(e, project.id)}
           >
             Delete
           </button>
