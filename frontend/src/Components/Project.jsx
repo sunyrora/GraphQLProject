@@ -1,5 +1,5 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ConfirmModal from "./ConfirmModal";
 
 const Project = ({ project, deleteHandler }) => {
@@ -8,12 +8,18 @@ const Project = ({ project, deleteHandler }) => {
     id: project.id,
     state: { testState: "testState" },
   };
+  const navigate = useNavigate();
 
   const onClickDelete = (e) => {
     e.preventDefault();
     if (deleteHandler) {
       deleteHandler(e, project.id);
     }
+  };
+
+  const onClickEdit = (e) => {
+    e.preventDefault();
+    navigate("/editProject", { state: { project } });
   };
 
   return (
@@ -46,7 +52,10 @@ const Project = ({ project, deleteHandler }) => {
           </Link>
         </div>
         <div className="card-footer projects-screen">
-          <button className="btn btn-outline-success small">
+          <button
+            className="btn btn-outline-success small"
+            onClick={onClickEdit}
+          >
             <FaEdit className="icon" /> Edit
           </button>
           <ConfirmModal

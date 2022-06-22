@@ -20,6 +20,11 @@ const ProjectDetailScreen = () => {
     }
   };
 
+  const editProjectHandler = (e) => {
+    e.preventDefault();
+    navigate("/editProject", { state: { project: data.project } });
+  };
+
   return (
     <>
       {loading ? (
@@ -44,7 +49,10 @@ const ProjectDetailScreen = () => {
               type={CLIENT_TYPE_INSIDE_PROJECT}
             />
             <div>
-              <button className="btn btn-outline-success medium">
+              <button
+                className="btn btn-outline-success medium"
+                onClick={editProjectHandler}
+              >
                 <FaEdit className="icon" /> Edit Project
               </button>
               <ConfirmModal

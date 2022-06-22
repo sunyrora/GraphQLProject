@@ -26,6 +26,35 @@ const ADD_PROJECT = gql`
   }
 `;
 
+const UPDATE_PROJECT = gql`
+  mutation updateProject(
+    $id: ID!
+    $clientId: ID
+    $name: String
+    $description: String
+    $status: ProjectStatusUpdate
+  ) {
+    updateProject(
+      id: $id
+      clientId: $clientId
+      name: $name
+      description: $description
+      status: $status
+    ) {
+      id
+      name
+      description
+      status
+      client {
+        id
+        name
+        email
+        phone
+      }
+    }
+  }
+`;
+
 const DELETE_PROJECT = gql`
   mutation deleteProject($id: ID!) {
     deleteProject(id: $id) {
@@ -59,4 +88,4 @@ const deletProjectRequest = async (projectId) => {
     });
 };
 
-export { ADD_PROJECT, DELETE_PROJECT, deletProjectRequest };
+export { ADD_PROJECT, UPDATE_PROJECT, DELETE_PROJECT, deletProjectRequest };
