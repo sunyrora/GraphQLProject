@@ -44,23 +44,17 @@ const ProjectDetailScreen = () => {
               type={CLIENT_TYPE_INSIDE_PROJECT}
             />
             <div>
-              {/* <button
-                className="btn btn-danger mdium"
-                onClick={onClickDeleteProject}
-              >
-                <FaTrash className="icon" /> Delete Project
-              </button> */}
-              <button className="btn btn-outline-success mdium">
+              <button className="btn btn-outline-success medium">
                 <FaEdit className="icon" /> Edit Project
               </button>
               <ConfirmModal
                 buttonText="Delete Project"
-                buttonStyle="btn btn-outline-danger mdium"
+                buttonStyle="btn btn-outline-danger medium"
                 message={`Delete Project "${data.project.name}" ?`}
                 icon={<FaTrash className="icon" />}
                 callBackConfirm={deleteProjectHandler}
               />
-              <Link to="/" className="btn btn-outline-secondary mdium ms-auto">
+              <Link to="/" className="btn btn-outline-secondary medium">
                 Back
               </Link>
             </div>
