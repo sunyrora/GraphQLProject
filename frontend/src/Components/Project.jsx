@@ -51,7 +51,7 @@ const Project = ({ project, deleteHandler }) => {
           </button>
           <ConfirmModal
             buttonText="Delete"
-            buttonStyle="btn btn-outline-success small"
+            buttonStyle="btn btn-outline-danger small"
             message={`Delete Project "${project.name}" ?`}
             icon={<FaTrash className="icon" />}
             callBackConfirm={onClickDelete}
