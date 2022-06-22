@@ -39,10 +39,10 @@ const AddProjectModal = ({ handleSubmit }) => {
   //     }
   //   }, []);
 
-  const handleChangeSelect = (e, handler) => {
-    e.preventDefault();
-    handler(e.target.value);
-  };
+  // const handleChangeSelect = (e, handler) => {
+  //   e.preventDefault();
+  //   handler(e.target.value);
+  // };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -52,12 +52,13 @@ const AddProjectModal = ({ handleSubmit }) => {
       status,
       clientId,
     };
+
     if (handleSubmit) {
       handleSubmit(e, project);
 
       setName("");
       setDescription("");
-      //   setClientId(optionsClient[0].value);
+      setClientId("");
       setStatus(optionsStatus[0].value);
     }
   };
@@ -136,7 +137,7 @@ const AddProjectModal = ({ handleSubmit }) => {
                         className="form-select mb-3"
                         id="status"
                         value={status}
-                        onChange={(e) => handleChangeSelect(e, setStatus)}
+                        onChange={(e) => setStatus(e.target.value)}
                       >
                         {optionsStatus.map((option) => (
                           <option key={option.value} value={option.value}>
@@ -153,7 +154,7 @@ const AddProjectModal = ({ handleSubmit }) => {
                         className="form-select mb-3"
                         required
                         value={clientId}
-                        onChange={(e) => handleChangeSelect(e, setClientId)}
+                        onChange={(e) => setClientId(e.target.value)}
                       >
                         <option value="">--Choose Client--</option>
                         {dataClients.clients.map((client) => (
