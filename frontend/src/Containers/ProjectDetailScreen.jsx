@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Client from "../Components/Client";
 import ConfirmModal from "../Components/ConfirmModal";
@@ -50,8 +50,12 @@ const ProjectDetailScreen = () => {
               >
                 <FaTrash className="icon" /> Delete Project
               </button> */}
+              <button className="btn btn-outline-success mdium">
+                <FaEdit className="icon" /> Edit Project
+              </button>
               <ConfirmModal
                 buttonText="Delete Project"
+                buttonStyle="btn btn-outline-danger mdium"
                 message={`Delete Project "${data.project.name}" ?`}
                 icon={<FaTrash className="icon" />}
                 callBackConfirm={deleteProjectHandler}

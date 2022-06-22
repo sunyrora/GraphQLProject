@@ -1,4 +1,4 @@
-import { FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ConfirmModal from "./ConfirmModal";
 
@@ -46,7 +46,9 @@ const Project = ({ project, deleteHandler }) => {
           </Link>
         </div>
         <div className="card-footer projects-screen">
-          <button className="btn btn-outline-success small">Edit</button>
+          <button className="btn btn-outline-success small">
+            <FaEdit className="icon" /> Edit
+          </button>
           <ConfirmModal
             buttonText="Delete"
             buttonStyle="btn btn-outline-success small"
