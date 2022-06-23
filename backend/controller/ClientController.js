@@ -1,4 +1,5 @@
 const Client = require("../models/Client");
+const Project = require("../models/Project");
 
 const getClients = async (req, res) => {
   try {
@@ -36,6 +37,9 @@ const addClient = async (req, res) => {
 
 const deleteClient = async (req, res) => {
   try {
+    const projects = await Project.find({ clientId: req });
+    projects.forEach((project) => project.remove());
+
     return await Client.findByIdAndDelete(req);
   } catch (error) {
     console.error(`addClient error: ${error}`.red);
