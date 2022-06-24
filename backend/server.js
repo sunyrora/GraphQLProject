@@ -11,10 +11,11 @@ const app = express();
 app.use(express.json());
 connectDB();
 
-app.use(cors());
+// app.use(cors());
 
 app.use(
   "/graphql",
+  cors(),
   graphqlHTTP((req, res, params) => ({
     schema,
     context: { req, res },
